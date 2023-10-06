@@ -21,37 +21,34 @@ class _SebhaState extends State<Sebha> {
     return Center(
       child: Column(
         children: [
-          InkWell(
+          Stack(
+            children: [
+              Center(
+                  child: Container(
+                      margin: EdgeInsets.only(
+                        left: 50,
+                      ),
+                      child: Image.asset(
+                        'assets/images/head_of_seb7a.png',
+                      ))),
+              Container(
+                  margin: EdgeInsets.only(
+                    top: 79,
+                  ),
+                  child: Center(
+                      child: InkWell(
+                          onTap: () {
+                            onSebhaclick();
+                          },
+                          child:
+                              Image.asset('assets/images/body_of_seb7a.png')))),
+            ],
+          ),
+
+          /*InkWell(
             onTap: () {
-              Transform.rotate(angle: 30);
 
-              index += 1;
-              count++;
-              setState(() {});
-              if (count == 30 && index == 30) {
-                index = 0;
-                tasbeh = "Alhamdlelah";
-                setState(() {});
-              } else if (count == 60 && index == 30) {
-                index = 0;
-                tasbeh = "AllahAkbar";
-                setState(() {});
-              } else if (count == 90 && index == 30) {
-                index = 0;
-                count = 0;
-                tasbeh = "Sobhanallah";
-                setState(() {});
-              }
-              /* else if(count==90){
-                tasbeh="Sobhanallah";
-                index=0;
-                if(index==30){
-                  count=30;
-                }
-                setState(() {
-
-                });
-              }*/
+              onSebhaclick();
             },
             child: Image(
               image: AssetImage('assets/images/sebhashap.png'),
@@ -59,7 +56,7 @@ class _SebhaState extends State<Sebha> {
               height: 300,
               alignment: Alignment.center,
             ),
-          ),
+          ),*/
           SizedBox(
             height: 20,
           ),
@@ -96,5 +93,26 @@ class _SebhaState extends State<Sebha> {
         ],
       ),
     );
+  }
+
+  void onSebhaclick() {
+    Transform.rotate(angle: 30);
+    index += 1;
+    count++;
+    setState(() {});
+    if (count == 30 && index == 30) {
+      index = 0;
+      tasbeh = "Alhamdlelah";
+      setState(() {});
+    } else if (count == 60 && index == 30) {
+      index = 0;
+      tasbeh = "AllahAkbar";
+      setState(() {});
+    } else if (count == 90 && index == 30) {
+      index = 0;
+      count = 0;
+      tasbeh = "Sobhanallah";
+      setState(() {});
+    }
   }
 }
